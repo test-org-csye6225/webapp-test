@@ -25,9 +25,7 @@ source "googlecompute" "custom-mi" {
   network             = var.network
   image_name          = var.image_name
   ssh_username        = var.ssh_username
-  source_image_family = var.source_image_family
-  credentials_file    = "C:/Users/srivi/Downloads/csye6225-414819-76ecab02869b.json"
-  # disk_size              = "20"
+  source_image_family = var.source_image_family  # disk_size              = "20"
   # disk_type              = "pd-standard"
   # image_description      = "A custom image with webapp pre-installed"
   # image_family           = "csye6255-app-image"
