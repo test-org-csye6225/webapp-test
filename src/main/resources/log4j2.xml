@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <File name="File" fileName="/var/log/webapp/application.log" append="true">
+            <JsonLayout compact="true" eventEol="true" properties="true">
+                <KeyValuePair key="timestamp" value="$${date:yyyy-MM-dd'T'HH:mm:ss.SSS'Z'}"/>
+                <KeyValuePair key="httpMethod" value="$${ctx:httpMethod}"/>
+                <KeyValuePair key="path" value="$${ctx:path}"/>
+                <KeyValuePair key="remoteAddress" value="$${ctx:remoteAddress}"/>
+                <KeyValuePair key="serverIP" value="$${ctx:serverIP}"/>
+            </JsonLayout>
+        </File>
+        <Console name="Console" target="SYSTEM_OUT">
+                <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <logger name="org" level="INFO"/>
+        <Root level="DEBUG">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+</Configuration>
